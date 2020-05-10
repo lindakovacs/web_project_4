@@ -1,0 +1,13 @@
+.profile__avatar {
+    display: flex;
+    align-items: center;
+    /* flex-wrap: wrap; */
+    justify-content: space-between;
+    margin-left: 0;
+  }
+  @media screen and (max-width: 425px) {
+    .profile__avatar {
+      flex-direction: column;
+      margin: auto;
+    }
+  }
