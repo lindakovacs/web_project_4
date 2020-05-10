@@ -1,12 +1,22 @@
 .root {
-    background-color: #000000;
-    font-family: "Inter", Arial, sans-serif;
-    position: relative;
-    /* max-width: 1200px;
-    min-width: 300px; */
-    /* width: 100%; */
-    margin: 45px 200px 0 200px;
-    /* padding: 0; */  
+  background-color: #000000;
+  color: #ffffff;
+  font-family: "Inter", Arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  box-sizing: border-box;
+  /* max-width: 1200px;
+  min-width: 300px; */
+  /* margin: 45px 200px 0 200px;
+  margin: 0 23px;
+  padding: 0 48px; 
+  width: 100%; */ 
 }
 @media screen and (max-width: 767px) {
     .root {
