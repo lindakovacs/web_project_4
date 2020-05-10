@@ -1,0 +1,18 @@
+.cards__grid {
+    display: grid;
+    /* background-color: #000000; */
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 18px;
+    grid-row-gap: 21px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+@media screen and (max-width: 375px) {
+    .cards__grid {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      /* margin: 36px 20px 0 20px; */
+    }
+}
