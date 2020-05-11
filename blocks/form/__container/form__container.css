@@ -1,0 +1,15 @@
+.form__container {
+  max-width: 430px;
+  max-height: 330px;
+  width: 100%;
+  background-color: #FFFFFF;
+  color: #000000;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  box-sizing: border-box;
+  margin: auto;
+  padding: 36px;
+}
