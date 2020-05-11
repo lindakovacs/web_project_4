@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./pages/index.css">
+    <link rel="stylesheet" href="./styles/styles.css">
     <title>Around the US</title>
     <meta name="description" content="Linda Kovacs's Project for Portfolio at Practicum by Yandex">
     <meta name="keywords" content="html, css, javascript">
@@ -71,6 +72,21 @@
                     </div>
                 </li>
             </ul>
+        </section>
+        <section class="form">
+            <form class="form__container" name="form__edit-profile" action="#">
+                <button class="form__reset-button" type="reset"></button>
+                <h2 class="form__header">Edit profile</h2>
+                <fieldset class="form__fields">
+                    <label for="name">
+                        <input type="text" class="form__input form__title" id="name" name="name" placeholder="Name" value="Jacques Cousteau" required>
+                    </label>
+                    <label for="job">
+                        <input type="text" class="form__input form__subtitle" id="job" name="job" placeholder="Job" value="Explorer" required>
+                    </label>
+                    <button class="form__submit-button" type="submit" value="Save">Save</button>
+                </fieldset>
+            </form>
         </section>
     </main>
     <footer class="footer">
