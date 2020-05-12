@@ -9,22 +9,3 @@
       /* height: 282px; */
     }
 }
-
-.card__image_yosemite-valley {
-  background-image: url('../../../images/yosemite-valley.jpg');
-}
-.card__image_lake-louise {
-  background-image: url('../../../images/lake-louise.jpg');
-}
-.card__image_bald-mountains {
-  background-image: url('../../../images/bald-mountains.jpg');
-}
-.card__image_latemar {
-  background-image: url('../../../images/latemar.jpg');
-}
-.card__image_vanois-national-park {
-  background-image: url('../../../images/vanois-national-park.jpg');
-}
-.card__image_lago-di-braies {
-  background-image: url('../../../images/lago-di-braies.jpg');
-}
