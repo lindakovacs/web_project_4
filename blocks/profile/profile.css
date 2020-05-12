@@ -8,21 +8,21 @@
 
 .profile {
     display: flex;
-    /* flex-wrap: wrap; */
-    flex-direction: row;
+    flex-wrap: wrap;
+    /* flex-direction: row; */
     justify-content: space-between;
     align-items: center;
-    /* position: relative; */
+    position: relative;
     max-width: 882px;
-    /* margin-top: 35px; */
+    padding-top: 35px;   
     width: 100%;
-    margin: 0 auto;
+    margin: auto;
 }
 @media screen and (max-width: 425px) {
     .profile {
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      /* margin: 38px 0 36px 0; */
+      margin: 38px 0 36px 0;
     }
 }

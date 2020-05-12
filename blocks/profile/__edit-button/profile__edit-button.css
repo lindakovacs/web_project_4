@@ -2,14 +2,15 @@
     width: 24px;
     height: 24px;
     border: 1px solid #ffffff;
-    background-color: #000;
+    background-color: #000000;
     background-image: url('../../../images/edit.svg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: 50% 50%;
-    /* margin-top: 5px; */
-    display: flex;
-    align-items: center;
+  }
+  .profile__edit-button:hover {
+    opacity: 0.8;
+    cursor: url(../../../images/pointer.png), auto;
   }
   @media screen and (max-width: 425px) {
       .profile__edit-button {

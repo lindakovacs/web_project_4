@@ -1,8 +1,9 @@
 .profile__avatar {
     display: flex;
+    justify-content: center;
     align-items: center;
     /* flex-wrap: wrap; */
-    justify-content: space-between;
+    /* justify-content: space-between; */
     margin-left: 0;
   }
   @media screen and (max-width: 425px) {

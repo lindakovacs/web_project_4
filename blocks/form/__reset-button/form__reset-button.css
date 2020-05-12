@@ -11,3 +11,7 @@
   width: 58px;
   height: 58px;
 }
+.form__reset-button:hover {
+  opacity: 0.8;
+  cursor: url(../../../images/pointer.png), auto;
+}

@@ -10,13 +10,13 @@
     .profile__title {
     font-size: 30px;
     margin-right: 14px;
-    width: 267px;
+    max-width: 267px;
     }
 }  
 @media screen and (max-width: 425px) {
     .profile__title {
     font-size: 22px;
     line-height: 56px;
-    width: 200px;
+    max-width: 200px;
     }
 }
