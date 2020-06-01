@@ -27,13 +27,15 @@
         </section>
         <section class="cards">
             <ul class="cards__grid">
-                <!-- template card -->
+                <!-- Template cards -->
             </ul>
         </section>
     </main>
     <footer class="footer">
         <p class="footer__copyright">© 2020 Around The U.S.</p>
     </footer>
+
+    <!-- Edit profile -->
     <section class="form form__edit">
         <form class="form__container" name="form__edit-profile" action="#">
             <button class="form__reset-button" type="reset"></button>
@@ -45,18 +47,49 @@
                 <label for="job">
                     <input type="text" class="form__input form__subtitle" id="job" name="job" placeholder="Job" value="Explorer" required>
                 </label>
-                <button class="form__submit-button" type="submit" value="Save">Save</button>
+                <button class="form__submit-button hover" type="submit" value="Save">Save</button>
             </fieldset>
         </form>
     </section>
 
+    <!-- Add new place -->
+    <section class="form form__add">
+        <form class="form__container" name="form__add-card" action="#">
+            <button class="form__reset-button" type="reset"></button>
+            <h2 class="form__header">New Place</h2>
+            <fieldset class="form__fields">
+                <label for="title">
+                    <input type="text" class="form__input form__card-title" id="title" name="title" placeholder="Title" value="" required>
+                </label>
+                <label for="image-link">
+                    <input type="link" class="form__input form__image-link" id="image-link" name="image-link" placeholder="image-link" value="" required>
+                </label>
+                <button class="form__submit-button hover" type="submit" value="Create">Create</button>
+            </fieldset>
+        </form>
+    </section>
+
+      <!-- Open image -->
+    <div class="form form__add-image">
+        <div class="form__container form__open-image">
+        <img src="./images/close-icon.svg" alt="close" class="form__reset-button">
+        <img src="" alt="" class="form__image">
+        <p class="form__image-title"></p>
+        </div>
+    </div>
+
+    <!-- Template cards -->
     <template class="card-template">
         <li class="card">
+            <div class="card__container">
+            <button type="button" class="card__delete-button hover"></button>
             <div class="card__image"></div>
+            
             <div class="card__text">
                 <h2 class="card__title"></h2>
-                <button type="button" class="card__like-button"></button>
+                <button type="button" class="card__like-button hover"></button> 
             </div>
+        </div>
         </li>
     </template>
     <script src="./scripts/scripts.js"></script>

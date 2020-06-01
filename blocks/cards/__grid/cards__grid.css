@@ -1,6 +1,6 @@
 .cards__grid {
     display: grid;
-    /* background-color: #000000; */
+    background-color: #000000;
     grid-template-columns: 1fr 1fr 1fr;
     grid-column-gap: 18px;
     grid-row-gap: 21px;
