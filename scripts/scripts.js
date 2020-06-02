@@ -28,8 +28,8 @@ const initialCards = [
 const editFormModal = document.querySelector('.form__edit');
 const addFormModal = document.querySelector('.form__add');
 const openImageFormModal = document.querySelector('.form__add-image');
-let formImageModal = document.querySelector('.form__image');
-let formImageTitle = document.querySelector('.form__image-title');
+const formImageModal = document.querySelector('.form__image');
+const formImageTitle = document.querySelector('.form__image-title');
 
 const editButton = document.querySelector('.profile__edit-button');
 const editCloseIcon = editFormModal.querySelector('.form__reset-button');
