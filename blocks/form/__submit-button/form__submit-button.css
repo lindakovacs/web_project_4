@@ -15,5 +15,5 @@
 }
 .form__submit-button:hover {
     opacity: .8;
-    cursor: url(../../../images/pointer.png), auto;
+    cursor: pointer;
 }

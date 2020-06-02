@@ -23,3 +23,25 @@
   left: 0;
   top: 0;
 }
+
+@media screen and (max-width: 930px) {
+  .form__container {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 730px) {
+  .form__container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 38px 19px 36px 19px;
+  }
+}
+/* 
+@media screen and (max-width: 425px) {
+  .form__container {
+    padding: 0 40px;
+    top: 135px;
+  }
+} */
