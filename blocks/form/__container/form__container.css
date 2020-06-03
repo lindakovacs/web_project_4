@@ -35,11 +35,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 38px 19px 36px 19px;
+    /* margin: 38px 19px 36px 19px; */
   }
 }
-/* 
-@media screen and (max-width: 425px) {
+
+/* @media screen and (max-width: 650px) {
   .form__container {
     padding: 0 40px;
     top: 135px;

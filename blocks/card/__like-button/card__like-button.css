@@ -15,6 +15,11 @@
     align-items: center;
 }
 
+.card__like-button:hover {
+  opacity: .6;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 420px) {
     .card__like-button {
       margin-right: 30px;

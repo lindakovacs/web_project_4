@@ -11,3 +11,8 @@
     position: absolute;
     cursor: pointer;
 }
+
+.card__delete-button:hover {
+    opacity: .8;
+    cursor: pointer;
+}
