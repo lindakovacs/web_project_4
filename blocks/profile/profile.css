@@ -6,24 +6,28 @@
 @import url(./__edit-button/profile__edit-button.css);
 @import url(./__add-button/profile__add-button.css);
 @import url(./__container/profile__container.css);
+@import url(./__text/profile__text.css);
 
 .profile {
-    display: flex;
-    flex-wrap: wrap;
-    /* flex-direction: row; */
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-    max-width: 882px;
-    padding-top: 35px;   
-    width: 100%;
-    margin: auto;
+  display: flex;
+  /* flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  padding-top: 35px;   
+  margin: auto; */
+  max-width: 882px;
+  padding-top: 35px; 
+  width: 100%;
+  margin: auto;
 }
-@media screen and (max-width: 650px) {
-    .profile {
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      margin: 38px 0 36px 0;
-    }
+
+@media screen and (max-width: 730px) {
+  .profile {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 38px 0 36px 0;
+  }
 }
