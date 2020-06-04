@@ -3,10 +3,7 @@
   background-image: url('../../../images/close-icon.svg');
   background-size: contain;
   border: none;
-  /* position: fixed; */
   position: absolute;
-  /* I usually clean up my code before the last round of reviewes when I have the feeling that everything whent over well. 
-  Thank you for the observation, I really like clean code myself */
   cursor: pointer;
   top: -45px;
   right: -45px;

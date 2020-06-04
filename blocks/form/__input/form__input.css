@@ -13,3 +13,13 @@
     padding-bottom: 13px;
     margin-bottom: 30px;
 }
+
+@media screen and (max-width: 500px) {
+    .form__input {
+      max-width: 200px;
+      width: 100%;
+      font-size: 12px;
+      line-height: 15px;
+      margin-bottom: 20px;
+    }
+}

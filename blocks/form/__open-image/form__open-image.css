@@ -14,8 +14,8 @@
 }
 
 @media screen and (max-width: 650px) {
-    .form__open-image {
-      justify-content: center;
-      align-items: left;
-    }
+  .form__open-image {
+    justify-content: center;
+    align-items: left;
   }
+}

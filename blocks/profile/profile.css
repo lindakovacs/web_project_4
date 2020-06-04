@@ -1,4 +1,3 @@
-@import url(./__user/profile__user.css);
 @import url(./__image/profile__image.css);
 @import url(./__info/profile__info.css);
 @import url(./__title/profile__title.css);
@@ -10,13 +9,6 @@
 
 .profile {
   display: flex;
-  /* flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  position: relative;
-  padding-top: 35px;   
-  margin: auto; */
   max-width: 882px;
   padding-top: 35px; 
   width: 100%;

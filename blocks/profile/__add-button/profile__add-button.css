@@ -10,9 +10,6 @@
   box-sizing: border-box;
   border-radius: 2px;
   margin: 33px 0 0 auto;
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
 }
   
 .profile__add-button:hover {
@@ -22,10 +19,6 @@
 
 @media screen and (max-width: 730px) {
   .profile__add-button {
-    /* max-width: 282px;
-    width: 100%;
-    margin-top: 36px;
-    background-size: 16px; */
     width: 282px;
     background-size: 17px 17px;
     align-self: center;

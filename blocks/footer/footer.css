@@ -2,9 +2,7 @@
 
 .footer {
     display: block;
-    /* padding: 60px 0 60px 0; */
     max-width: 882px;
-    /* margin: auto; */
     width: 100%;
     margin: 66px auto 60px;
 }

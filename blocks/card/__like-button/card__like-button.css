@@ -3,7 +3,6 @@
     background-color: #ffffff;
     background-image: url('../../../images/heart.svg');
     background-repeat: no-repeat;
-    /* background-size: contain; */
     background-size: 100% 100%;
     border: 0;
     height: 18px;
@@ -11,7 +10,6 @@
     padding: 0;
     cursor: pointer;
     display: flex;
-    /* justify-content: space-between; */
     align-items: center;
 }
 
