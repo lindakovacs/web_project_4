@@ -4,7 +4,7 @@
     box-shadow: unset;
     border-radius: 0;
     background-color: unset;
-    align-items: left;
+    align-items: start;
     position: relative;
     z-index: 2;
     max-width: 75vw;
@@ -16,6 +16,5 @@
 @media screen and (max-width: 650px) {
   .form__open-image {
     justify-content: center;
-    align-items: left;
   }
 }

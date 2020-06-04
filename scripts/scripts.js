@@ -115,7 +115,7 @@ function createCard(card) {
   });
 
   likeModal.addEventListener('click', (e) => {
-    e.target.classList.toggle('card__like_active');
+    e.target.classList.toggle('card__like-button_active');
   });
 
   imageModal.addEventListener('click', () => {
