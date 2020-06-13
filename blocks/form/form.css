@@ -8,6 +8,10 @@
 @import url(./__image/form__image.css);
 @import url(./__image-title/form__image-title.css);
 @import url(./__open-image/form__open-image.css);
+@import url(./__input/-error/form__input-error.css);
+@import url(./__submit-button/_disabled/form__submit-button_disabled.css);
+/* @import url(./__input/_disabled/form__input_disabled.css); */
+/* @import url(./__input/-error/_visible/form__input-error_visible.css); */
 
 .form {
   position: fixed;
