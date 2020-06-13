@@ -128,6 +128,26 @@ function createCard(card) {
   return cardModal;
 }
 
+function closeFormEscapeKey(e) {
+  const formEscape = document.querySelector(".form_visible");
+  if (e.key === "Escape") {
+    toggleForm(formEscape);
+  }
+  e.target.removeEventListener("keydown", closeFormEscapeKey);
+}
+
+function closeFormClick(e) {
+  const formClick = e.target;
+  if(!formClick.classList.contains("form_visible")) {
+    return;
+  }
+  toggleForm(formClick);
+}
+
+document.addEventListener("keydown", closeFormEscapeKey);
+document.addEventListener("click", closeFormClick);
+
+
 initialCards.forEach((card) => {
   renderCard(card);
 });
