@@ -36,19 +36,17 @@
     </footer>
 
     <!-- Edit profile -->
-    <section class="form form__edit">
+    <section class="form form--edit-profile">
         <form class="form__container" name="form__edit-profile" action="#" novalidate>
             <button class="form__reset-button" type="reset"></button>
             <h2 class="form__header">Edit profile</h2>
             <fieldset class="form__fields">
-                <label for="name">
+                <label for="form__field">
                     <input type="text" class="form__input form__title" id="name-input" name="name" placeholder="Name" value="Jacques Cousteau" minlength="2" maxlength="40" required>
-                    <!-- <span class="form__placeholder" id="name-input-placeholder"></span> -->
                     <span class="form__input-error" id="name-input-error"></span>
                 </label>
-                <label for="job">
+                <label for="job-input">
                     <input type="text" class="form__input form__subtitle" id="job-input" name="job" placeholder="Job" value="Explorer" minlength="2" maxlength="200" required>
-                    <!-- <span class="form__placeholder" id="job-input-placeholder"></span> -->
                     <span class="form__input-error" id="job-input-error"></span>
                 </label>
                 <button class="form__submit-button" type="submit" value="Save">Save</button>
@@ -57,16 +55,16 @@
     </section>
 
     <!-- Add new place -->
-    <section class="form form__add">
+    <section class="form form--add-card">
         <form class="form__container" name="form__add-card" action="#" novalidate>
             <button class="form__reset-button" type="reset"></button>
             <h2 class="form__header">New Place</h2>
             <fieldset class="form__fields">
-                <label for="title">
+                <label for="card-input">
                     <input type="text" class="form__input form__card-title" id="card-input" name="title" placeholder="Title" value="" minlength="1" maxlength="30" required>
                     <span class="form__input-error" id="card-input-error" ></span>
                 </label>
-                <label for="image-link">
+                <label for="link-input">
                     <input type="url" class="form__input form__image-link" id="link-input" name="image-link" placeholder="image-link" value="" required>
                     <span class="form__input-error" id="link-input-error"></span>
                 </label>
@@ -76,7 +74,7 @@
     </section>
 
       <!-- Open image -->
-    <div class="form form__add-image">
+    <div class="form form--add-image">
         <div class="form__container form__open-image">
         <img src="./images/close-icon.svg" alt="close" class="form__reset-button">
         <img src="" alt="" class="form__image">
@@ -96,7 +94,6 @@
                 </div>
             </div>
         </li>
-        </template>
     </template>
     <script src="./scripts/validation.js" defer></script>
     <script src="./scripts/scripts.js" defer></script>

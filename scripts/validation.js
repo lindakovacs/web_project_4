@@ -3,7 +3,7 @@ const formValidation = {
     inputSelector: ".form__input",
     submitButtonSelector: ".form__submit-button",
     inactiveButtonClass: "form__submit-button_disabled",
-    inputErrorClass: "form__input-error", 
+    inputErrorClass: "form__input_type_error", 
     errorClass: "form__input-error_visible" 
 };
 
@@ -52,7 +52,7 @@ const setEventListeners = (formElement) => {
     toggleButtonState(inputList, buttonElement);
   
     inputList.forEach((inputElement) => {
-      inputElement.addEventListener("input", function () {
+      inputElement.addEventListener("input", () => {
         checkInputValidity(formElement, inputElement);
         toggleButtonState(inputList, buttonElement);
       });
@@ -63,7 +63,7 @@ const setEventListeners = (formElement) => {
 const enableValidation = (form) => {
   const formList = Array.from(document.querySelectorAll(form.formSelector));
   formList.forEach((formElement) => {
-    formElement.addEventListener("submit", function (e) {
+    formElement.addEventListener("submit", (e) => {
       e.preventDefault();
     });
 

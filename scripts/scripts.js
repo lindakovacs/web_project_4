@@ -25,9 +25,9 @@ const initialCards = [
     }
 ];
 
-const editFormModal = document.querySelector('.form__edit');
-const addFormModal = document.querySelector('.form__add');
-const openImageFormModal = document.querySelector('.form__add-image');
+const editFormModal = document.querySelector('.form--edit-profile');
+const addFormModal = document.querySelector('.form--add-card');
+const openImageFormModal = document.querySelector('.form--add-image');
 const formImageModal = document.querySelector('.form__image');
 const formImageTitle = document.querySelector('.form__image-title');
 
@@ -48,55 +48,8 @@ const linkInput = document.querySelector('.form__image-link');
 const listWrapper = document.querySelector('.cards__grid');
 const templateCard = document.querySelector('.card-template').content.querySelector('.card');
 
-
-addButton.addEventListener('click', () => {
-  toggleForm(addFormModal);
-});
-addCloseIcon.addEventListener('click', () => {
-  toggleForm(addFormModal);
-});
-
-editButton.addEventListener('click', () => {
-  toggleForm(editFormModal);
-});
-editCloseIcon.addEventListener('click', () => {
-  toggleForm(editFormModal);
-});
-
-imageCloseIcon.addEventListener('click', () => {
-  toggleForm(openImageFormModal);
-});
-
-editFormModal.addEventListener('submit', editFormSubmitHandler);
-addFormModal.addEventListener('submit', addFormSubmitHandler);
-
 function toggleForm (card) {
   card.classList.toggle('form_visible');
-}
-
-function editFormSubmitHandler (e) {
-    e.preventDefault();
-
-    profileName.textContent = nameInput.value;
-    profileJob.textContent = jobInput.value;
-
-    toggleForm(editFormModal);
-}
-
-function addFormSubmitHandler (e) {
-  e.preventDefault();
-
-  const newCard =
-    {
-        name: titleInput.value,
-        link: linkInput.value
-    };
-  renderCard(newCard);
-  toggleForm(addFormModal);
-}
-
-function renderCard(card) {
-  listWrapper.prepend(createCard(card));
 }
 
 function createCard(card) {
@@ -120,12 +73,37 @@ function createCard(card) {
 
   imageModal.addEventListener('click', () => {
     formImageModal.src = `${card.link}`;
-    formImageModal.alt = `${card.name.replace(/\s+/g, '-').toLowerCase()}`;
+    formImageModal.alt = `${card.name}`; 
     formImageTitle.textContent = card.name;
     toggleForm(openImageFormModal);
   });
 
   return cardModal;
+}
+
+function renderCard(card) {
+  listWrapper.prepend(createCard(card));
+}
+
+function editFormSubmitHandler (e) {
+  e.preventDefault();
+
+  profileName.textContent = nameInput.value;
+  profileJob.textContent = jobInput.value;
+
+  toggleForm(editFormModal);
+}
+
+function addFormSubmitHandler (e) {
+  e.preventDefault();
+
+  const newCard =
+    {
+        name: titleInput.value,
+        link: linkInput.value
+    };
+  renderCard(newCard);
+  toggleForm(addFormModal);
 }
 
 function closeFormEscapeKey(e) {
@@ -144,9 +122,29 @@ function closeFormClick(e) {
   toggleForm(formClick);
 }
 
+addButton.addEventListener('click', () => {
+  toggleForm(addFormModal);
+});
+addCloseIcon.addEventListener('click', () => {
+  toggleForm(addFormModal);
+});
+
+editButton.addEventListener('click', () => {
+  toggleForm(editFormModal);
+});
+editCloseIcon.addEventListener('click', () => {
+  toggleForm(editFormModal);
+});
+
+imageCloseIcon.addEventListener('click', () => {
+  toggleForm(openImageFormModal);
+});
+
+editFormModal.addEventListener('submit', editFormSubmitHandler);
+addFormModal.addEventListener('submit', addFormSubmitHandler);
+
 document.addEventListener("keydown", closeFormEscapeKey);
 document.addEventListener("click", closeFormClick);
-
 
 initialCards.forEach((card) => {
   renderCard(card);
