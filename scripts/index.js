@@ -1,3 +1,24 @@
+import  FormValidator  from './FormValidator.js';
+import  Card  from './Card.js';
+
+const defaultConfig = {
+  formSelector: ".form__container",
+  inputSelector: ".form__input",
+  submitButtonSelector: ".form__submit-button",
+  inactiveButtonClass: "form__submit-button_disabled",
+  inputErrorClass: "form__input_type_error", 
+  errorClass: "form__input-error_visible" 
+};
+
+const editFormModal = document.querySelector('.form--edit-profile');
+const addFormModal = document.querySelector('.form--add-card');
+
+const editFormValidator = new FormValidator(defaultConfig, editFormModal);
+const cardFormValidator = new FormValidator(defaultConfig, addFormModal);
+
+editFormValidator.enableValidation();
+cardFormValidator.enableValidation();
+
 const initialCards = [
     {
         name: "Yosemite Valley",
@@ -25,8 +46,6 @@ const initialCards = [
     }
 ];
 
-const editFormModal = document.querySelector('.form--edit-profile');
-const addFormModal = document.querySelector('.form--add-card');
 const openImageFormModal = document.querySelector('.form--add-image');
 const formImageModal = document.querySelector('.form__image');
 const formImageTitle = document.querySelector('.form__image-title');
@@ -46,14 +65,14 @@ const titleInput = document.querySelector('.form__card-title');
 const linkInput = document.querySelector('.form__image-link');
 
 const listWrapper = document.querySelector('.cards__grid');
-const templateCard = document.querySelector('.card-template').content.querySelector('.card');
+const cardTemplateSelector = document.querySelector('.card-template').content.querySelector('.card');
 
-function toggleForm (card) {
+const toggleForm = (card) => {
   card.classList.toggle('form_visible');
 }
 
-function createCard(card) {
-  const cardModal = templateCard.cloneNode(true);
+const createCard = (card) => {
+  const cardModal = cardTemplateSelector.cloneNode(true);
   const imageModal = cardModal.querySelector('.card__image');
   const titleModal = cardModal.querySelector('.card__title');
   const deleteButtonModal = cardModal.querySelector('.card__delete-button');
@@ -81,11 +100,14 @@ function createCard(card) {
   return cardModal;
 }
 
-function renderCard(card) {
-  listWrapper.prepend(createCard(card));
+const renderCard = (data) => {
+
+  const card = new Card(data, cardTemplateSelector);
+
+  listWrapper.prepend(createCard(data));
 }
 
-function editFormSubmitHandler (e) {
+const editFormSubmitHandler = (e) => {
   e.preventDefault();
 
   profileName.textContent = nameInput.value;
@@ -94,7 +116,7 @@ function editFormSubmitHandler (e) {
   toggleForm(editFormModal);
 }
 
-function addFormSubmitHandler (e) {
+const addFormSubmitHandler = (e) => {
   e.preventDefault();
 
   const newCard =
@@ -102,11 +124,12 @@ function addFormSubmitHandler (e) {
         name: titleInput.value,
         link: linkInput.value
     };
+  
   renderCard(newCard);
   toggleForm(addFormModal);
 }
 
-function closeFormEscapeKey(e) {
+const closeFormEscapeKey = (e) => {
   const formEscape = document.querySelector(".form_visible");
   if (e.key === "Escape") {
     toggleForm(formEscape);
@@ -114,7 +137,7 @@ function closeFormEscapeKey(e) {
   e.target.removeEventListener("keydown", closeFormEscapeKey);
 }
 
-function closeFormClick(e) {
+const closeFormClick = (e) => {
   const formClick = e.target;
   if(!formClick.classList.contains("form_visible")) {
     return;
@@ -149,4 +172,5 @@ document.addEventListener("click", closeFormClick);
 initialCards.forEach((card) => {
   renderCard(card);
 });
+
 
