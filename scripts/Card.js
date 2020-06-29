@@ -1,13 +1,13 @@
-const cardTemplateSelector = document.querySelector('.card-template').content.querySelector('.card');
+import { toggleForm }  from './index.js';
+
 const formImageModal = document.querySelector('.form__image');
 const formImageTitle = document.querySelector('.form__image-title');
 const openImageFormModal = document.querySelector('.form--add-image');
 
-
 class Card {
-    constructor(data, cardTemplateSelector) {
-        this._name = data.name;
-        this._link = data.link;
+    constructor(name, link, cardTemplateSelector) {
+        this._name = name;
+        this._link = link;
 
         this._cardTemplateSelector = cardTemplateSelector;
     }
@@ -30,7 +30,7 @@ class Card {
           this._deleteButtonModal(e);
         });
         this._card.querySelector(".card__image").addEventListener("click", (e) => {
-        this._imageModal();
+        this._imageModal(e);
         });
       }
 
@@ -38,8 +38,8 @@ class Card {
         e.target.classList.toggle('card__like-button_active');
     }
 
-    _deleteButtonModal(e) {
-        this._card.closest(".card").remove(e);
+    _deleteButtonModal() { 
+        this._card.remove(this._card);
     }
 
     _imageModal() {
@@ -47,7 +47,7 @@ class Card {
         formImageModal.src = `${this._link}`;
         formImageModal.alt = `${this._name}`; 
         formImageTitle.textContent = this._name;
-        this._toggleForm(openImageFormModal);
+        toggleForm(openImageFormModal);
     }
 
     generateCard() {
