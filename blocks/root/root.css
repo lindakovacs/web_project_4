@@ -1,7 +1,7 @@
 .root {
   background-color: #000000;
   color: #ffffff;
-  font-family: 'Inter', 'Arial', sans-serif;
+  font-family: "Inter", "Arial", sans-serif;
   font-style: normal;
   font-weight: normal;
   max-width: 1200px;
@@ -38,7 +38,7 @@
 }
 
 @media screen and (max-width: 767px) {
-    .root {
-      margin: 28px 20px 0 20px;
-    }
+  .root {
+    margin: 28px 20px 0 20px;
+  }
 }
