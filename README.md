@@ -21,7 +21,7 @@ The project adapts to the width of various devices (from 320px to 1280px). The p
 
 **Technologies**
 
-Stack: HTML5, CSS3, flexbox, grid layout, BEM, Media queries, transition, JavaScript, DOM, Debugging Git, Figma
+Stack: HTML5, CSS3, flexbox, grid layout, BEM, Media queries, transition, JavaScript, DOM, Debugging Git, Figma, Form validation, OOP, Webpack
 
 **Figma**
 
