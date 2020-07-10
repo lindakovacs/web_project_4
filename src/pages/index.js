@@ -20,12 +20,13 @@ import {
   addFormModal,
 } from "../utils/constants.js";
 
-
-
 const popupWithImage = new PopupWithImage(openImageFormModal);
 popupWithImage.setEventListeners();
 
+// TBD working to fix issue of displaying new empty card: 
+// adding new card is set to undefind instead of name and link
 const renderCard = (cardItem) => {
+  // console.log("cardItem =", cardItem); 
   const renderNewCard = new Card(
     {
       cardItem,
@@ -35,8 +36,9 @@ const renderCard = (cardItem) => {
     },
     templateCardSelector
   );
-
+  // console.log("renderNewCard =", renderNewCard); 
   const cardTemplate = renderNewCard.generateCard();
+  // console.log("cardTemplate =", cardTemplate); 
   return cardTemplate;
 }
 

@@ -4,11 +4,15 @@ export default class Popup {
     this._handleEscClose = this._handleEscClose.bind(this);
   }
 
-  // Closes the popup when pressing the Esc key
-  _handleEscClose(e) {
-    if (e.key === "Escape") {
-      this.close();
-    }
+  _handleEscClose() {
+    document.addEventListener("keydown", (e) => {
+      if (
+        e.key === "Escape" &&
+        this._formElement.classList.contains(`${this._popupSelector}_visible`)
+      ) {
+        this.close();
+      }
+    });
   }
 
   // Adds click event listener to the close the popup
@@ -24,6 +28,7 @@ export default class Popup {
     //Closes the form when clicking outside the form
     this._popupElement.addEventListener("click", (e) => {
       if (e.target.classList.contains("form")) {
+        this._handleEscClose(e);
         this.close();
       }
     });
