@@ -1,3 +1,5 @@
+import {EscKey} from "../utils/constants.js"
+
 export default class Popup {
   constructor(popupSelector) {
     this._popupElement = document.querySelector(popupSelector);
@@ -8,7 +10,7 @@ export default class Popup {
     document.addEventListener("keydown", (e) => {
       if (
         e.key === "Escape" ||
-        (e.keyCode === 27 &&
+        (e.keyCode === EscKey &&
           this._formElement.classList.contains(
             `${this._popupSelector}_visible`
           ))
@@ -46,8 +48,8 @@ export default class Popup {
   }
 
   //Closes the popup
-  close() {
+  close(e) {
     this._popupElement.classList.remove("form_visible");
-    document.removeEventListener("keydown", () => this._handleEscClose);
+    e.target.removeEventListener("keydown", this._handleEscClose);
   }
 }

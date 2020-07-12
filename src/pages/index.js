@@ -36,6 +36,7 @@ const renderCard = (cardItem) => {
     },
     templateCardSelector
   );
+  
   // console.log("renderNewCard =", renderNewCard); 
   const cardTemplate = renderNewCard.generateCard();
   // console.log("cardTemplate =", cardTemplate); 

@@ -46,3 +46,4 @@ export const editFormModal = ".form--edit-profile";
 export const addFormModal = ".form--add-card";
 export const templateCardSelector = ".card-template";
 
+export const EscKey = 27;
