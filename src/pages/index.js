@@ -30,7 +30,7 @@ const renderCard = (cardItem) => {
   const renderNewCard = new Card(
     {
       cardItem,
-      imageModal: ({ name, link }) => {
+      handleCardClick: ({ name, link }) => {
         popupWithImage.open(name, link);
       },
     },

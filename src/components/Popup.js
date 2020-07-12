@@ -7,17 +7,12 @@ export default class Popup {
   }
 
   _handleEscClose() {
-    document.addEventListener("keydown", (e) => {
-      if (
-        e.key === "Escape" ||
-        (e.keyCode === EscKey &&
-          this._formElement.classList.contains(
-            `${this._popupSelector}_visible`
-          ))
-      ) {
-        this.close();
-      }
-    });
+    if(event.key === 'Escape' || event.keyCode === EscKey &&
+        this._formElement.classList.contains(
+          `${this._popupSelector}_visible`))
+        {
+      this.close();
+    }
   }
 
   //  Adds click event listener to the close the popup

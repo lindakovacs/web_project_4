@@ -1,9 +1,9 @@
 export default class Card {
-  constructor({ cardItem, imageModal }, cardTemplateSelector) {
+  constructor({ cardItem, handleCardClick }, cardTemplateSelector) {
     this._name = cardItem.name;
     this._link = cardItem.link;
     this._cardTemplateSelector = cardTemplateSelector;
-    this._imageModal = imageModal;
+    this._handleCardClick = handleCardClick;
   }
   
   _getCardTemplate() {
@@ -32,7 +32,7 @@ _setEventListeners() {
     //image popup
     this._card.querySelector(".card__image")
       .addEventListener("click", () => {
-      this._imageModal({
+      this._handleCardClick({
         name: this._name,
         link: this._link,
       });
