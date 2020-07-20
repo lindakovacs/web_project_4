@@ -39,3 +39,5 @@ Export images directly from Figma and optimize them [here](https://tinypng.com/)
 
 ### Demo
 [Demo link](https://lindakovacs.github.io/web_project_4/)
+
+[![Run on Repl.it](https://repl.it/badge/github/lindakovacs/web_project_4)](https://repl.it/github/lindakovacs/web_project_4)
