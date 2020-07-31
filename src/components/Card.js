@@ -1,9 +1,14 @@
 export default class Card {
-  constructor({ cardItem, handleCardClick }, cardTemplateSelector) {
+  constructor({ cardItem, handleCardClick, handleDeleteClick, handleLikeClick }, cardTemplateSelector, userId) {
     this._name = cardItem.name;
     this._link = cardItem.link;
+    this._likes = cardItem.likes;
+    this._cardItem = cardItem;
+    this._userId = userId;
     this._cardTemplateSelector = cardTemplateSelector;
     this._handleCardClick = handleCardClick;
+    this._handleDeleteClick = handleDeleteClick;
+    this._handleLikeClick = handleLikeClick;
   }
   
   _getCardTemplate() {
@@ -20,14 +25,23 @@ _setEventListeners() {
     this._card
       .querySelector(".card__like-button")
       .addEventListener("click", (e) => {
+        const LikeButtonIsActive = this._element
+          .querySelector(".card__like-button")
+          .classList.contains("card__like-button_active");
+        this._handleLikeClick(
+          LikeButtonIsActive,
+          this._cardItem._id,
+          this._card.querySelector(".card__like-counter")
+        );
         e.target.classList.toggle("card__like-button_active");
       });
     //delete button
     this._card
       .querySelector(".card__delete-button")
       .addEventListener("click", () => {
-        this._card.remove();
-        this._card = null;
+        this._handleDeleteClick(listItem, this._cardItem._id);
+        // this._card.remove();
+        // this._card = null;
       });
     //image popup
     this._card.querySelector(".card__image")
@@ -37,6 +51,21 @@ _setEventListeners() {
         link: this._link,
       });
     });
+  }
+
+  //Updates card view: delete button, likes number
+  _updateCardView() {
+    const buttonItem = this._card.querySelector(".card__delete-button");
+
+    //likes counter
+    this._card.querySelector(".card__like-counter").textContent = this._likes.length;
+    this._likes.forEach(card => {
+      if(this._userId === card._id) this._card.querySelector('.card__like-button').classList.toggle('card__like-button_active')
+    });
+    //show delete icon only if the card was created by the user
+    if(this._userId === this._cardItem.owner._id) {
+      buttonItem.classList.add("card__delete-button_active");
+    }
   }
 
   generateCard() {
@@ -49,7 +78,7 @@ _setEventListeners() {
     .textContent = this._name;
 
     this._setEventListeners();
-
+    this._updateCardView();
     return this._card;
   }
 }

@@ -10,6 +10,10 @@ export default class Section {
     this._container.append(cardItem);
   }
 
+  removeItem(cardId) {
+    this._container.querySelector(`[data-id='${cardId}']`).remove();
+  }
+
   renderItems() {
     this._renderedItems.forEach((item) => this._renderer(item));
   }

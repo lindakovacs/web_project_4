@@ -1,6 +1,7 @@
 export default class FormValidator {
-  constructor(config, formSelector) {
-    this._formElement = formSelector;
+  constructor(config, formElement) {
+    this._config = config;
+    this._formElement = formElement;
 
     this._inputSelector = config.inputSelector;
     this._submitButtonSelector = config.submitButtonSelector;
@@ -15,8 +16,8 @@ export default class FormValidator {
     this._inputList = Array.from(
       this._formElement.querySelectorAll(this._inputSelector)
     );
-
   }
+
   _showInputError(inputElement, errorMessage) {
     const errorElement = this._formElement.querySelector(
       `#${inputElement.id}-error`
@@ -44,9 +45,7 @@ export default class FormValidator {
   }
 
   _hasInvalidInput() {
-    return this._inputList.some((inputElement) => {
-      return !inputElement.validity.valid;
-    });
+    return this._inputList.some((inputElement) => !inputElement.validity.valid);
   }
 
   _toggleButtonState(inputList) {
@@ -59,21 +58,22 @@ export default class FormValidator {
     }
   }
 
-  _setEventListeners() {
-    this._inputList.forEach((inputElement) => {
+  _setEventListeners(inputList) {
+    this._formElement.addEventListener("submit", (e) => {
+      e.preventDefault();
+    });
+
+    inputList.forEach((inputElement) => {
       inputElement.addEventListener("input", () => {
         this._checkInputValidity(inputElement);
-        this._toggleButtonState();
+        this._toggleButtonState(inputList);
       });
     });
   }
 
+  // Enable form validation
   enableValidation() {
-    this._formElement.addEventListener("submit", (e) => {
-      e.preventDefault();
-      this._toggleButtonState(true);
-    });
-
-    this._setEventListeners();
+    this._toggleButtonState(this._inputList, this._buttonElement);
+    this._setEventListeners(this._inputList);
   }
 }

@@ -1,29 +1,29 @@
-export const initialCards = [
-  {
-    name: "Yosemite Valley",
-    link: "https://code.s3.yandex.net/web-code/yosemite.jpg",
-  },
-  {
-    name: "Lake Louise",
-    link: "https://code.s3.yandex.net/web-code/lake-louise.jpg",
-  },
-  {
-    name: "Bald Mountains",
-    link: "https://code.s3.yandex.net/web-code/bald-mountains.jpg",
-  },
-  {
-    name: "Latemar",
-    link: "https://code.s3.yandex.net/web-code/latemar.jpg",
-  },
-  {
-    name: "Vanois National Park",
-    link: "https://code.s3.yandex.net/web-code/vanois.jpg",
-  },
-  {
-    name: "Lago di Braies",
-    link: "https://code.s3.yandex.net/web-code/lago.jpg",
-  },
-];
+// export const initialCards = [
+//   {
+//     name: "Yosemite Valley",
+//     link: "https://code.s3.yandex.net/web-code/yosemite.jpg",
+//   },
+//   {
+//     name: "Lake Louise",
+//     link: "https://code.s3.yandex.net/web-code/lake-louise.jpg",
+//   },
+//   {
+//     name: "Bald Mountains",
+//     link: "https://code.s3.yandex.net/web-code/bald-mountains.jpg",
+//   },
+//   {
+//     name: "Latemar",
+//     link: "https://code.s3.yandex.net/web-code/latemar.jpg",
+//   },
+//   {
+//     name: "Vanois National Park",
+//     link: "https://code.s3.yandex.net/web-code/vanois.jpg",
+//   },
+//   {
+//     name: "Lago di Braies",
+//     link: "https://code.s3.yandex.net/web-code/lago.jpg",
+//   },
+// ];
 
 export const defaultConfig = {
   formSelector: ".form__container",
@@ -39,11 +39,17 @@ export const addButton = document.querySelector(".profile__add-button");
 export const profileName = document.querySelector(".profile__title"); 
 export const profileJob = document.querySelector(".profile__subtitle"); 
 
+export const profilePicture = document.querySelector(".profile__image");
+export const profilePictureContainer = document.querySelector(".profile__image-container");
+
 export const closeButtonSelector = ".form__reset-button";
 export const listWrapper = ".cards__grid";
 export const openImageFormModal = ".form--add-image";
 export const editFormModal = ".form--edit-profile";
 export const addFormModal = ".form--add-card";
 export const templateCardSelector = ".card-template";
+export const deleteFormSelector = ".form--delete-image";
+export const pictureFormSelector = ".form--change-image";
 
 export const EscKey = 27;
+export const EnterKey = 13;
