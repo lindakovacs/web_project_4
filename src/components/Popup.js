@@ -47,6 +47,5 @@ export default class Popup {
   //Closes the popup
   close(e) {
     this._popupElement.classList.remove("form_visible");
-    // e.target.removeEventListener("keydown", this._handleEscClose());
   }
 }

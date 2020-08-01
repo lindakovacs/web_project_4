@@ -1,5 +1,4 @@
 import Popup from "./Popup.js";
-import { EnterKey } from "../utils/constants.js";
 
 export default class PopupWithForm extends Popup {
   constructor({ popupSelector, handleFormSubmit }) {
@@ -29,13 +28,6 @@ export default class PopupWithForm extends Popup {
         this._cardId
       );
       this.close();
-    });
-    //Submit form by pressing the Enter key
-    this._popupElement.addEventListener("keydown", (e) => {
-      if (e.which === EnterKey) {
-        this.renderLoading(true);
-        this._handleFormSubmit(this._getInputValues());
-      }
     });
   }
 

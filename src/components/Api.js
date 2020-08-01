@@ -40,7 +40,6 @@ export default class Api {
           headers: this._headers,
           method: "PATCH",
           body: JSON.stringify(
-            //   avatar
             { avatar: avatar.imageLink }
           ),
         })
@@ -52,7 +51,7 @@ export default class Api {
           });
     }
 
-    //  Edit Profile
+    // Edit Profile
     setUserProfile(data) {
         return fetch(`${this._baseUrl}/users/me`, {
           headers: this._headers,
@@ -69,40 +68,6 @@ export default class Api {
             console.log(err);
           });
     }
-
-
-    // setUserProfile({name, about}) {
-    //     return fetch(`${this._baseUrl}/users/me`, {
-    //       headers: this._headers,
-    //       method: "PATCH",
-    //       body: JSON.stringify({ name, about }),
-    //     })
-    //     .then((res) =>
-    //     res.ok ? res.json() : Promise.reject(`Error: ${res.status}`)
-    //     )
-    //     .catch((err) => {
-    //     console.log(err);
-    //     });
-    // }
-
-
-    // // Add New Card
-    // addCard({title, link}) {
-    //     return fetch(`${this._baseUrl}/cards`, {
-    //       headers: this._headers,
-    //       method: "POST",
-    //       body: JSON.stringify({
-    //         title: title,
-    //         link: link,
-    //       }),
-    //     })
-    //       .then((res) =>
-    //         res.ok ? res.json() : Promise.reject(`Error: ${res.status}`)
-    //       )
-    //       .catch((err) => {
-    //         console.log(err);
-    //       });
-    // }
 
     // Add New Card
     addCard(data) {
@@ -121,20 +86,6 @@ export default class Api {
             console.log(err);
           });
     }
-
-    // addCard(cardInfo) {
-    //     return fetch(`${this.baseUrl}/cards`, {
-    //       headers: this._headers,
-    //       method: "POST",
-    //       body: JSON.stringify(cardInfo),
-    //     })
-    //     .then((res) =>
-    //     res.ok ? res.json() : Promise.reject(`Error: ${res.status}`)
-    //     )
-    //     .catch((err) => {
-    //     console.log(err);
-    //     });
-    // }
     
     // Deleting a Card
     deleteCard({_id}) {
@@ -164,41 +115,3 @@ export default class Api {
           });
     }
 }
-
-
-// 2. Loading Cards from the Server
-// GET https://around.nomoreparties.co/v1/groupId/cards
-// getInitialCards() { }
-
-// 1. Loading User Information from the Server
-// GET https://around.nomoreparties.co/v1/groupId/users/me
-// getUserProfile() { }
-
-// getAppInfo() { }
-
-
-// 4. Adding a New Card
-// POST https://around.nomoreparties.co/v1/groupId/cards
-// addCard({ name, link }) { }
-
-// 6. Creating a Popup for Deleting a Card
-
-// 7. Deleting a Card
-// DELETE https://around.nomoreparties.co/v1/groupId/cards/cardId
-// deleteCard(cardId) { }
-
-// 5. Showing How Many Likes a Card Has
-
-// 8. Adding and Removing Likes
-// PUT https://around.nomoreparties.co/v1/groupId/cards/likes/cardId
-// DELETE https://around.nomoreparties.co/v1/groupId/cards/likes/cardId
-// updateLike(cardId, like) { }
-
-
-// 3. Editing the Profile
-// PATCH https://around.nomoreparties.co/v1/groupId/users/me
-// setUserProfile() { }
-
-// 9. Updating Profile Picture
-// PATCH https://around.nomoreparties.co/v1/groupId/users/me/avatar
-// setUserAvatar() { }
