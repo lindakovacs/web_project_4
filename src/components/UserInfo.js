@@ -17,19 +17,19 @@ export default class UserInfo {
         };
     }
 
-    setUserAvatar({link}) {
-        this._userAvatar.src = link;
-    }
-
-    updateUserInfo(data) {
-        this._userName = data.userName;
-        this._userJob = data.userJob;
-  }
-
     // Take new user data to add it to page
     setUserInfo() {
         profileName.textContent = this._userName;
         profileJob.textContent = this._userJob;
         profilePicture.src = this._userAvatar;
+    }    
+
+    updateUserInfo(data) {
+        this._userName = data.name;
+        this._userJob = data.job;
+  }
+
+    setUserAvatar(imageLink) {
+        this._userAvatar = imageLink;
     }
 }

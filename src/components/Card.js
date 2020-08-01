@@ -21,11 +21,22 @@ export default class Card {
   }
 
 _setEventListeners() {
+  const listItem = this._card
+    .querySelector(".card__delete-button")
+    .closest(".card");
+    //delete button
+    this._card
+      .querySelector(".card__delete-button")
+      .addEventListener("click", () => {
+        this._handleDeleteClick(listItem, this._cardItem._id);
+        // this._card.remove();
+        // this._card = null;
+      });
     //like button
     this._card
       .querySelector(".card__like-button")
       .addEventListener("click", (e) => {
-        const LikeButtonIsActive = this._element
+        const LikeButtonIsActive = this._card
           .querySelector(".card__like-button")
           .classList.contains("card__like-button_active");
         this._handleLikeClick(
@@ -35,14 +46,7 @@ _setEventListeners() {
         );
         e.target.classList.toggle("card__like-button_active");
       });
-    //delete button
-    this._card
-      .querySelector(".card__delete-button")
-      .addEventListener("click", () => {
-        this._handleDeleteClick(listItem, this._cardItem._id);
-        // this._card.remove();
-        // this._card = null;
-      });
+
     //image popup
     this._card.querySelector(".card__image")
       .addEventListener("click", () => {
@@ -60,9 +64,13 @@ _setEventListeners() {
     //likes counter
     this._card.querySelector(".card__like-counter").textContent = this._likes.length;
     this._likes.forEach(card => {
-      if(this._userId === card._id) this._card.querySelector('.card__like-button').classList.toggle('card__like-button_active')
+      if (this._userId === card.cardId) {
+        this._card
+          .querySelector(".card__like-button")
+          .classList.toggle("card__like-button_active");
+      }
     });
-    //show delete icon only if the card was created by the user
+    //show delete icon if the card was created by the user
     if(this._userId === this._cardItem.owner._id) {
       buttonItem.classList.add("card__delete-button_active");
     }

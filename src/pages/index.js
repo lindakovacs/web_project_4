@@ -57,21 +57,21 @@ const renderCard = (cardItem) => {
   const renderNewCard = new Card(
     {
       cardItem,
-      handleCardClick: ({ name, link }) => {
-        popupWithImage.open(name, link);
+      handleCardClick: ({ title, link }) => {
+        popupWithImage.open(title, link);
       },
       handleDeleteClick: (listItem, cardId) => {
-      deleteFormElement.setSubmitAction(listItem, cardId);
-      deleteFormElement.open();
-    },
+        deleteFormElement.setSubmitAction(listItem, cardId);
+        deleteFormElement.open();
+      },
       handleLikeClick: (LikeButtonIsActive, cardId, likeCounter) => {
-        api.updateLike(LikeButtonIsActive, cardId)
-        .then((result) => {
+        api.updateLike(LikeButtonIsActive, cardId).then((result) => {
           likeCounter.textContent = result.likes.length;
         });
-      }
+      },
     },
-    templateCardSelector, userInfo.getUserInfo().userId
+    templateCardSelector,
+    userInfo.getUserInfo().userId
   );
   
   // console.log("renderNewCard =", renderNewCard); 
@@ -114,7 +114,7 @@ const addFormElement = new PopupWithForm({
     api
       .addCard(data)
       .then((result) => {
-        document.querySelector(listWrapper).append(renderCard(result));
+        document.querySelector(listWrapper).prepend(renderCard(result));
         addFormElement.close();
       })
       .finally(() => addFormElement.renderLoading(false));

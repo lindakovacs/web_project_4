@@ -4,13 +4,12 @@
     box-shadow: unset;
     border-radius: 0;
     background-color: unset;
-    align-items: start;
+    /* align-items: start; */
     position: relative;
-    z-index: 2;
+    /* z-index: 2; */
     max-width: 75vw;
     max-height: 75vh;
-    width: auto;
-    height: auto;
+    margin: auto;
 }
 
 @media screen and (max-width: 650px) {

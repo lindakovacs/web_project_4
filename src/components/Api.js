@@ -41,7 +41,7 @@ export default class Api {
           method: "PATCH",
           body: JSON.stringify(
             //   avatar
-            { avatar: avatar.link }
+            { avatar: avatar.imageLink }
           ),
         })
           .then((res) =>
@@ -58,8 +58,8 @@ export default class Api {
           headers: this._headers,
           method: "PATCH",
           body: JSON.stringify({
-            name: data.userName,
-            about: data.userJob,
+            name: data.name,
+            about: data.job,
           }),
         })
           .then((res) =>
@@ -86,32 +86,14 @@ export default class Api {
     // }
 
 
-    // Add New Card
-    addCard({name, link}) {
-        return fetch(`${this._baseUrl}/cards`, {
-          headers: this._headers,
-          method: "POST",
-          body: JSON.stringify({
-            name: name,
-            link: link,
-          }),
-        })
-          .then((res) =>
-            res.ok ? res.json() : Promise.reject(`Error: ${res.status}`)
-          )
-          .catch((err) => {
-            console.log(err);
-          });
-    }
-
     // // Add New Card
-    // addCard(data) {
+    // addCard({title, link}) {
     //     return fetch(`${this._baseUrl}/cards`, {
     //       headers: this._headers,
     //       method: "POST",
     //       body: JSON.stringify({
-    //         name: data.name,
-    //         link: data.link,
+    //         title: title,
+    //         link: link,
     //       }),
     //     })
     //       .then((res) =>
@@ -121,6 +103,24 @@ export default class Api {
     //         console.log(err);
     //       });
     // }
+
+    // Add New Card
+    addCard(data) {
+        return fetch(`${this._baseUrl}/cards`, {
+          headers: this._headers,
+          method: "POST",
+          body: JSON.stringify({
+            name: data.title,
+            link: data.link,
+          }),
+        })
+          .then((res) =>
+            res.ok ? res.json() : Promise.reject(`Error: ${res.status}`)
+          )
+          .catch((err) => {
+            console.log(err);
+          });
+    }
 
     // addCard(cardInfo) {
     //     return fetch(`${this.baseUrl}/cards`, {
@@ -151,8 +151,8 @@ export default class Api {
     }
     
     // Adding and Removing Likes
-    updateLike({LikeButtonIsActive, _id}) {
-        return fetch(`${this._baseUrl}/cards/likes/${_id}`, {
+    updateLike({LikeButtonIsActive, cardId}) {
+        return fetch(`${this._baseUrl}/cards/likes/${cardId}`, {
           headers: this._headers,
           method: LikeButtonIsActive ? "PUT" : "DELETE",
         })
