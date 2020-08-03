@@ -63,7 +63,7 @@ _setEventListeners() {
 
     //likes counter
     this._card.querySelector(".card__like-counter").textContent = this._likes.length;
-    this._likes.forEach(card => {
+    this._likes.forEach((card) => {
       if (this._userId === card.cardId) {
         this._card
           .querySelector(".card__like-button")

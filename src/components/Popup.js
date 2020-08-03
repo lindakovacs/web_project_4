@@ -1,4 +1,4 @@
-import {EscKey} from "../utils/constants.js"
+import {EscKey} from "../utils/constants.js";
 
 export default class Popup {
   constructor(popupSelector) {
@@ -6,46 +6,70 @@ export default class Popup {
     this._handleEscClose = this._handleEscClose.bind(this);
   }
 
-  // Closing the popup by pressing the Esc key
+  // Close the popup by pressing the Esc key
   _handleEscClose() {
-    if(event.key === 'Escape' || event.keyCode === EscKey &&
+    document.addEventListener("keydown", (e) => {
+      if (
+        e.key === "Escape" ||
+        (e.keyCode === EscKey &&
         this._formElement.classList.contains(
-          `${this._popupSelector}_visible`))
-        {
-      this.close();
-    }
-  }
-
-  //  Closes the popup using the mouse
-  setEventListeners() {
-    this._popupElement
-      .querySelector(".form__reset-button")
-      .addEventListener("click", (e) => {
-        //e.preventDefault();
+          `${this._popupSelector}_visible`
+        ))
+      ) {
         this.close();
-        // this._handleEscClose();
-        e.stopPropagation();
-      });
-
-    // Closes the form when clicking outside the form
-    this._popupElement.addEventListener("click", (e) => {
-      if (e.target.classList.contains("form")) {
-        // e.preventDefault();
-        this._handleEscClose(e.key);
-        this.close(e.target);
+        e.target.removeEventListener("keydown", this._handleEscClose);
       }
     });
   }
-  // Opens the popup
-  open() {
+
+  //  Close the popup using the mouse
+  setEventListeners() {
+    this._popupElement
+    .querySelector(".form__reset-button")
+    .addEventListener("click", () => {
+      this.close();
+    });
+    // Close the form when clicking outside the form
+    this._popupElement.addEventListener("click", (e) => {
+      if (e.target.classList.contains("form")) {
+        this._handleEscClose(e.key);
+        this.close(e.target);
+        }
+      });
+  }
+
+  // //  Close the popup using the mouse
+  // setEventListeners() {
+  //   this._popupElement
+  //     .querySelector(".form__reset-button")
+  //     .addEventListener("click", () => {
+  //       //e.preventDefault();
+  //       this.close();
+  //       // this._handleEscClose();
+  //       // e.stopPropagation();
+  //     });
+  // // Close the form when clicking outside the form
+  // this._popupElement.addEventListener("click", (e) => {
+  //   if (e.target.classList.contains("form")) {
+  //     // e.preventDefault();
+  //     this._handleEscClose(e.key);
+  //     this.close(e.target);
+  //     }
+  //   });
+  // }
+
+  
+  // Open the popup
+  open(e) {
     this._popupElement.classList.add("form_visible");
     document.addEventListener("keydown", (e) => {
       this._handleEscClose(e.key);
     });
+    // e.target.removeEventListener("keydown", this._handleEscClose);
   }
 
-  //Closes the popup
-  close(e) {
+  //Close the popup
+  close() {
     this._popupElement.classList.remove("form_visible");
   }
 }

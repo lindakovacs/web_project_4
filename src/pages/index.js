@@ -21,6 +21,9 @@ import {
   pictureFormSelector,
   templateCardSelector,
   profilePictureContainer,
+  // profileName,
+  // profileJob,
+  // profilePicture
 } from "../utils/constants.js";
 
 let userInfo;
@@ -61,7 +64,7 @@ const renderCard = (cardItem) => {
         popupWithImage.open(title, link);
       },
       handleDeleteClick: (listItem, cardId) => {
-        deleteFormElement.setSubmitAction(listItem, cardId);
+        deleteFormElement.setInstanceFields(listItem, cardId);
         deleteFormElement.open();
       },
       handleLikeClick: (LikeButtonIsActive, cardId, likeCounter) => {
@@ -73,15 +76,15 @@ const renderCard = (cardItem) => {
     templateCardSelector,
     userInfo.getUserInfo().userId
   );
-  
-  // console.log("renderNewCard =", renderNewCard); 
-  // const cardTemplate = renderNewCard.generateCard();
-  // console.log("cardTemplate =", cardTemplate); 
-  // return cardTemplate;
     return renderNewCard.generateCard();
-}
+};
 
 // Display user info and initial cards
+// const userInfo = new UserInfo({
+//   userName: profileName,
+//   userJob: profileJob,
+//   userAvatar: profilePicture,
+// });
 api.getUserInfo()
 .then((result) => {
   userInfo = new UserInfo({

@@ -5,7 +5,7 @@ export default class Api {
     }
 
     getAppInfo(){
-        return Promise.all([this.getInitialCards(), this.getUserInfo()])
+        return Promise.all([this.getInitialCards(), this.getUserInfo()]);
     }
 
     // Load Cards from the Server
@@ -14,7 +14,7 @@ export default class Api {
           headers: this._headers,
         })
           .then((res) =>
-            res.ok ? res.json() : Promise.reject(`Error: ${res.status}`)
+            (res.ok ? res.json() : Promise.reject(`Error: ${res.status}`))
           )
           .catch((err) => {
             console.log(err);
@@ -27,7 +27,7 @@ export default class Api {
           headers: this._headers,
         })
           .then((res) =>
-            res.ok ? res.json() : Promise.reject(`Error: ${res.status}`)
+            (res.ok ? res.json() : Promise.reject(`Error: ${res.status}`))
           )
           .catch((err) => {
             console.log(err);
@@ -44,7 +44,7 @@ export default class Api {
           ),
         })
           .then((res) =>
-            res.ok ? res.json() : Promise.reject(`Error: ${res.status}`)
+            (res.ok ? res.json() : Promise.reject(`Error: ${res.status}`))
           )
           .catch((err) => {
             console.log(err);
@@ -62,7 +62,7 @@ export default class Api {
           }),
         })
           .then((res) =>
-            res.ok ? res.json() : Promise.reject(`Error: ${res.status}`)
+            (res.ok ? res.json() : Promise.reject(`Error: ${res.status}`))
           )
           .catch((err) => {
             console.log(err);
@@ -80,35 +80,35 @@ export default class Api {
           }),
         })
           .then((res) =>
-            res.ok ? res.json() : Promise.reject(`Error: ${res.status}`)
+            (res.ok ? res.json() : Promise.reject(`Error: ${res.status}`))
           )
           .catch((err) => {
             console.log(err);
           });
     }
     
-    // Deleting a Card
-    deleteCard({_id}) {
-        return fetch(`${this._baseUrl}/cards/${_id}`, {
+    // Delete Card
+    deleteCard({cardId}) {
+        return fetch(`${this._baseUrl}/cards/${cardId}`, {
           headers: this._headers,
           method: "DELETE",
         })
           .then((res) =>
-            res.ok ? res.json() : Promise.reject(`Error: ${res.status}`)
+            (res.ok ? res.json() : Promise.reject(`Error: ${res.status}`))
           )
           .catch((err) => {
             console.log(err);
           });
     }
     
-    // Adding and Removing Likes
+    // Add and Remove Likes
     updateLike({LikeButtonIsActive, cardId}) {
         return fetch(`${this._baseUrl}/cards/likes/${cardId}`, {
           headers: this._headers,
           method: LikeButtonIsActive ? "PUT" : "DELETE",
         })
           .then((res) =>
-            res.ok ? res.json() : Promise.reject(`Error: ${res.status}`)
+            (res.ok ? res.json() : Promise.reject(`Error: ${res.status}`))
           )
           .catch((err) => {
             console.log(err);

@@ -29,10 +29,10 @@
               <h1 class="profile__title">Jacques Cousteau</h1>
               <p class="profile__subtitle">Explorer</p>
             </div>
-            <button class="button profile__edit-button"></button>
+            <button class="button profile__edit-button" aria-label="Edit button"></button>
           </div>
         </div>
-        <button class="button profile__add-button"></button>
+        <button class="button profile__add-button" aria-label="Add button"></button>
       </section>
       <section class="cards">
         <ul class="cards__grid">
@@ -52,7 +52,7 @@
         action="#"
         novalidate
       >
-        <button class="form__reset-button" type="reset"></button>
+        <button class="form__reset-button" type="reset" aria-label="Close button"></button>
         <h2 class="form__header">Edit profile</h2>
         <fieldset class="form__fields">
           <label for="name-input">
@@ -83,7 +83,7 @@
             />
             <span class="form__input-error" id="job-input-error"></span>
           </label>
-          <button class="form__submit-button" type="submit" value="Save">
+          <button class="form__submit-button" type="submit" value="Save" aria-label="Save button">
             Save
           </button>
         </fieldset>
@@ -93,7 +93,7 @@
     <!-- Add new place -->
     <section class="form form--add-card">
       <form class="form__container" name="form__add-card" action="#" novalidate>
-        <button class="form__reset-button" type="reset"></button>
+        <button class="form__reset-button" type="reset" aria-label="Close button"></button>
         <h2 class="form__header">New Place</h2>
         <fieldset class="form__fields">
           <label for="card-input">
@@ -122,7 +122,7 @@
             />
             <span class="form__input-error" id="link-input-error"></span>
           </label>
-          <button class="form__submit-button" type="submit" value="Create">
+          <button class="form__submit-button" type="submit" value="Create" aria-label="Create button">
             Create
           </button>
         </fieldset>
@@ -132,7 +132,7 @@
     <!-- Open image -->
     <div class="form form--add-image">
       <div class="form__open-image">
-        <button class="form__reset-button" type="reset"></button>
+        <button class="form__reset-button" type="reset" aria-label="Close button"></button>
         <img src="#" alt="" class="form__image" />
         <p class="form__image-title"></p>
       </div>
@@ -141,10 +141,10 @@
      <!-- Delete card -->
   <div class="form form--delete-image">
     <form class="form__container" name="delete-image" novalidate>
-      <button class="form__reset-button" type="reset"></button>
+      <button class="form__reset-button" type="reset" aria-label="Close button"></button>
       <h2 class="form__header">Are you sure?</h2>
       <fieldset class="form__fields form__fields-delete">
-        <button class="form__submit-button" type="submit" value="Yes">Yes</button>
+        <button class="form__submit-button" type="submit" value="Yes" aria-label="Yes button">Yes</button>
       </fieldset>
     </form>
   </div>
@@ -152,7 +152,7 @@
   <!-- Change profile picture -->
   <div class="form form--change-image">
     <form class="form__container" name="change-image" novalidate>
-      <button class="form__reset-button" type="reset"></button>
+      <button class="form__reset-button" type="reset" aria-label="Close button"></button>
       <h2 class="form__header">Change profile picture</h2>
       <fieldset class="form__fields">
 
@@ -168,7 +168,7 @@
             />
             <span class="form__input-error" id="linkImage-input-error"></span>
           </label>
-        <button class="form__submit-button" type="submit" value="Save">
+        <button class="form__submit-button" type="submit" value="Save" aria-label="Save button">
             Save
           </button>
       </fieldset>
@@ -179,12 +179,12 @@
     <template class="card-template">
       <li class="card">
         <div class="card__container">
-          <button type="button" class="card__delete-button"></button>
+          <button type="button" class="card__delete-button" aria-label="Delete button"></button>
           <div class="card__image"></div>
           <div class="card__text">
             <h2 class="card__title"></h2>
             <div class="card__like-container">
-              <button type="button" class="card__like-button"></button>
+              <button type="button" class="card__like-button" aria-label="Like button"></button>
             <p class="card__like-counter"></p>
             </div>
           </div>
