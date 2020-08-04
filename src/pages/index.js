@@ -1,5 +1,4 @@
 import "./index.css"; 
-// import "../vendor/fonts/fonts.css";
 
 import FormValidator from "../components/FormValidator.js";
 import Card from "../components/Card.js";
@@ -31,7 +30,7 @@ let userInfo;
 const api = new Api({
   baseUrl: "https://around.nomoreparties.co/v1/group-2",
   headers: {
-    "Authorization": "d38c3eff-8aa3-43a2-86b1-ec6a6fc8a616",
+    Authorization: "d38c3eff-8aa3-43a2-86b1-ec6a6fc8a616",
     "Content-Type": "application/json",
   },
 });
@@ -43,29 +42,28 @@ popupWithImage.setEventListeners();
 // Delete Popup
 const deleteFormElement = new PopupWithForm({
   popupSelector: deleteFormSelector,
-  handleFormSubmit: ({} , listItem, cardId) => {
-    listItem.remove();
-    //delete card from server
-    api.deleteCard(cardId)
-    .then(() => deleteFormElement.close())
-    .finally(() => deleteFormElement.renderLoading(false));
-  }
 });
 
 deleteFormElement.setEventListeners();
 
 // Render new card
 const renderCard = (cardItem) => {
-  // console.log("cardItem =", cardItem); 
   const renderNewCard = new Card(
     {
       cardItem,
       handleCardClick: ({ title, link }) => {
         popupWithImage.open(title, link);
       },
-      handleDeleteClick: (listItem, cardId) => {
-        deleteFormElement.setInstanceFields(listItem, cardId);
+      handleDeleteClick: (card) => {
         deleteFormElement.open();
+        deleteFormElement.setSubmitAction(() => {
+          api
+            .deleteCard(card.id())
+            .then(() => {
+              card.remove();
+            })
+            .finally(() => deleteFormElement.renderLoading(false));
+        });
       },
       handleLikeClick: (LikeButtonIsActive, cardId, likeCounter) => {
         api.updateLike(LikeButtonIsActive, cardId).then((result) => {
@@ -76,7 +74,7 @@ const renderCard = (cardItem) => {
     templateCardSelector,
     userInfo.getUserInfo().userId
   );
-    return renderNewCard.generateCard();
+  return renderNewCard.generateCard();
 };
 
 // Display user info and initial cards
@@ -85,30 +83,31 @@ const renderCard = (cardItem) => {
 //   userJob: profileJob,
 //   userAvatar: profilePicture,
 // });
-api.getUserInfo()
-.then((result) => {
-  userInfo = new UserInfo({
-    userName: result.name, 
-    userJob: result.about, 
-    userAvatar: result.avatar, 
-    userId: result._id   
+api
+  .getUserInfo()
+  .then((result) => {
+    userInfo = new UserInfo({
+      userName: result.name,
+      userJob: result.about,
+      userAvatar: result.avatar,
+      userId: result._id,
     });
-  userInfo.setUserInfo();
-})
-.then(() => {
-  api.getInitialCards().then((result) => {
-    const cardList = new Section(
-      {
-        items: result,
-        renderer: (cardItem) => {
-          cardList.addItem(renderCard(cardItem));
+    userInfo.setUserInfo();
+  })
+  .then(() => {
+    api.getInitialCards().then((result) => {
+      const cardList = new Section(
+        {
+          items: result,
+          renderer: (cardItem) => {
+            cardList.addItem(renderCard(cardItem));
+          },
         },
-      },
-      listWrapper
-    );
-    cardList.renderItems();
+        listWrapper
+      );
+      cardList.renderItems();
+    });
   });
-});
 
 // Add new form
 const addFormElement = new PopupWithForm({
@@ -126,7 +125,7 @@ const addFormElement = new PopupWithForm({
 
 addFormElement.setEventListeners();
 
-addButton.addEventListener('click', () => {
+addButton.addEventListener("click", () => {
   addFormElement.open();
 });
 
@@ -165,7 +164,7 @@ const pictureFormElement = new PopupWithForm({
 
 pictureFormElement.setEventListeners();
 
-profilePictureContainer.addEventListener('click', () => {
+profilePictureContainer.addEventListener("click", () => {
   pictureFormElement.open();
 });
 

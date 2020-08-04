@@ -10,7 +10,7 @@ export default class PopupWithForm extends Popup {
     [this._name, this._job] = this._inputList;
   }
 
-  // Collects data from all the input fields
+  // Collect data from all the input fields
   _getInputValues() {
     this._formValues = {};
     this._inputList.forEach((inputElement) => this._formValues[inputElement.name] = inputElement.value);
@@ -59,9 +59,9 @@ export default class PopupWithForm extends Popup {
     }
   }
 
-  setInstanceFields (listItem, cardId) {
-    this._listItem = listItem;
-    this._cardId = cardId;
+  // Handle Form Submit for modal
+  setSubmitAction (action) {
+    this._handleFormSubmit = action;
   }
 
 }

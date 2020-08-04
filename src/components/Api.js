@@ -88,7 +88,7 @@ export default class Api {
     }
     
     // Delete Card
-    deleteCard({cardId}) {
+    deleteCard(cardId) {
         return fetch(`${this._baseUrl}/cards/${cardId}`, {
           headers: this._headers,
           method: "DELETE",
@@ -106,9 +106,10 @@ export default class Api {
         return fetch(`${this._baseUrl}/cards/likes/${cardId}`, {
           headers: this._headers,
           method: LikeButtonIsActive ? "PUT" : "DELETE",
+          // method: LikeButtonIsActive ? "DELETE" : "PUT",
         })
           .then((res) =>
-            (res.ok ? res.json() : Promise.reject(`Error: ${res.status}`))
+            res.ok ? res.json() : Promise.reject(`Error: ${res.status}`)
           )
           .catch((err) => {
             console.log(err);
