@@ -102,17 +102,54 @@ export default class Api {
     }
     
     // Add and Remove Likes
-    updateLike({LikeButtonIsActive, cardId}) {
-        return fetch(`${this._baseUrl}/cards/likes/${cardId}`, {
-          headers: this._headers,
-          method: LikeButtonIsActive ? "PUT" : "DELETE",
-          // method: LikeButtonIsActive ? "DELETE" : "PUT",
-        })
-          .then((res) =>
-            res.ok ? res.json() : Promise.reject(`Error: ${res.status}`)
-          )
-          .catch((err) => {
-            console.log(err);
-          });
+//     updateLike({LikeButtonIsActive, cardId}) {
+//         return fetch(`${this._baseUrl}/cards/likes/${cardId}`, {
+//           headers: this._headers,
+//           method: LikeButtonIsActive ? "PUT" : "DELETE",
+//           // method: LikeButtonIsActive ? "DELETE" : "PUT",
+//         })
+//           .then((res) =>
+//             res.ok ? res.json() : Promise.reject(`Error: ${res.status}`)
+//           )
+//           .catch((err) => {
+//             console.log(err);
+//           });
+//     }
+// }
+
+  // Add and Remove Likes
+  updateLike(LikeButtonIsActive, cardId){
+    if(LikeButtonIsActive) {
+      //unlike heart button
+      return fetch(`${this._baseUrl}/cards/likes/${cardId}`, {
+        method: "DELETE",
+        headers: this._headers
+      })
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        return Promise.reject(`Error: ${res.status}`);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
     }
+    else {
+      //like heart button
+      return fetch(`${this._baseUrl}/cards/likes/${cardId}`, {
+        method: "PUT",
+        headers: this._headers
+      })
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        return Promise.reject(`Error: ${res.status}`);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    }
+  }
 }

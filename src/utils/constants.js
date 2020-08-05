@@ -17,9 +17,9 @@ export const profilePictureContainer = document.querySelector(".profile__image-c
 
 export const closeButtonSelector = ".form__reset-button";
 export const listWrapper = ".cards__grid";
-export const openImageFormModal = ".form--add-image";
-export const editFormModal = ".form--edit-profile";
-export const addFormModal = ".form--add-card";
+export const openImageFormModal = ".form__add-image";
+export const editFormModal = ".form__edit-profile";
+export const addFormModal = ".form__add-card";
 export const templateCardSelector = ".card-template";
 export const deleteFormSelector = ".form--delete-image";
 export const pictureFormSelector = ".form--change-image";

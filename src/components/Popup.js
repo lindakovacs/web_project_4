@@ -6,9 +6,9 @@ export default class Popup {
     this._handleEscClose = this._handleEscClose.bind(this);
   }
   // let buttonClose = this._popupElement.querySelector(".form__reset-button");
-  removeListener(e) {
-    e.target.removeEventListener("keydown", this._handleEscClose);
-  } 
+  // removeListener(e) {
+  //   e.target.removeEventListener("keydown", this._handleEscClose);
+  // } 
 
   // Close the popup by pressing the Esc key
   _handleEscClose() {
@@ -21,7 +21,7 @@ export default class Popup {
         ))
       ) {
         this.close();
-        this.removeListener(e); 
+        e.target.removeEventListener("keydown", this._handleEscClose); 
       }
     });
   }
@@ -38,7 +38,7 @@ export default class Popup {
       if (e.target.classList.contains("form")) {
         this._handleEscClose(e.key);
         this.close(e.target);
-        this.removeListener(e);
+        e.target.removeEventListener("keydown", this._handleEscClose);
         }
       });
   }
