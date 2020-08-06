@@ -52,7 +52,7 @@ _setEventListeners() {
     this._card.querySelector(".card__image")
       .addEventListener("click", () => {
       this._handleCardClick({
-        name: this._name,
+        title: this._name,
         link: this._link,
       });
     });
